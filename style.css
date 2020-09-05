@@ -1,0 +1,102 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+    font-size: 10px;
+    font-family: monospace;
+}
+
+.menu{
+    height: 100%;
+    width: 100%;
+    background-color: #494d5f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* display: none; */
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: 1s;
+
+}
+
+nav {
+    background-color: #e5eaf5;
+    padding: 10em;
+}
+
+ul {
+    list-style: none;
+    text-transform: uppercase;
+}
+
+li {
+    /* background-color: #d0bdf4; */
+    margin: 2em;
+    padding: 1em 6em;
+    font-size: 1.7em;
+    letter-spacing: .6em;
+    text-align: center;
+    cursor: pointer;
+}
+
+li:hover{
+    background-color: #d0bdf4; 
+}
+.active{
+    background-color: #d0bdf4; 
+}
+
+.menu-button{
+    background-color: black;
+    position: fixed;
+    top: 4em;
+    left: 4em;
+    height: .5em;
+    width: 5em;
+    z-index: 200;
+    transition: .5s;
+}
+
+.menu-button::after,.menu-button::before {
+    content: '';
+    background-color: black;
+    position: fixed;
+    top: 4em;
+    left: 4em;
+    height: .5em;
+    width: 5em;
+    z-index: 200;
+    transition: .5s;
+}
+
+.menu-button::after{
+    top: 3em;
+}
+
+.menu-button::before{
+    top: 5em;
+}
+
+#menu:checked ~ .menu{
+   opacity: 1;
+    transform: translateX(0);
+}
+
+#menu:checked ~ * .menu-button{
+    width: 0;
+}
+#menu:checked ~ * .menu-button::after{
+    top: 4em;
+    transform: rotate(45deg);
+}
+#menu:checked ~ * .menu-button::before{
+    top: 4em;
+    transform: rotate(-45deg);
+}
